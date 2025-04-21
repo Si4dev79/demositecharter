@@ -1,0 +1,67 @@
+/* Contact Page Top Bar Styles */
+
+/* Override the contact-info class in the top bar */
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar .social {
+    display: flex;
+    align-items: center;
+}
+
+.top-bar .contact-info {
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    transition: none;
+    justify-content: flex-end;
+}
+
+.top-bar .contact-info:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.top-bar .contact-info a {
+    font-size: 14px;
+    margin-right: 15px;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.top-bar .contact-info a:last-child {
+    margin-right: 0;
+}
+
+.top-bar .contact-info a:hover {
+    color: #003366;
+}
+
+.top-bar .contact-info a i {
+    color: #555;
+    margin-right: 5px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .top-bar .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .top-bar .contact-info {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .top-bar .contact-info a {
+        margin-bottom: 5px;
+        margin-right: 0;
+    }
+}

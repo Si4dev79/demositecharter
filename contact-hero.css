@@ -1,0 +1,322 @@
+/* Contact Hero Styles */
+.contact-hero {
+    position: relative;
+    padding: 180px 0; /* Increased padding to match deep sea fishing page */
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    min-height: 500px; /* Set minimum height to match deep sea fishing page */
+    display: flex;
+    align-items: center;
+}
+
+/* Water texture is now handled by JavaScript */
+
+/* Hero Content Layout */
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+    padding-right: 40px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+#hero-fish-image {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    animation: floatImage 6s ease-in-out infinite;
+    transform-origin: center center;
+}
+
+@keyframes floatImage {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(15px) rotate(-2deg);
+    }
+}
+
+.contact-hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    position: relative;
+    animation: floatText 3s ease-in-out infinite;
+    text-align: left;
+}
+
+.contact-hero p {
+    max-width: 700px;
+    margin: 0;
+    font-size: 18px;
+    position: relative;
+    animation: floatText 3s ease-in-out 0.5s infinite;
+    text-align: left;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .hero-content {
+        flex-direction: column;
+    }
+
+    .hero-text {
+        padding-right: 0;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .contact-hero h1,
+    .contact-hero p {
+        text-align: center;
+    }
+
+    .contact-hero p {
+        margin: 0 auto;
+    }
+}
+
+@keyframes floatText {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Bubbles */
+.bubble {
+    position: absolute;
+    bottom: -50px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    animation: bubbleRise linear infinite;
+    z-index: 1;
+    pointer-events: none;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.bubble-1 {
+    width: 20px;
+    height: 20px;
+    left: 10%;
+    animation-duration: 8s;
+}
+
+.bubble-2 {
+    width: 15px;
+    height: 15px;
+    left: 20%;
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+
+.bubble-3 {
+    width: 25px;
+    height: 25px;
+    left: 35%;
+    animation-duration: 7s;
+    animation-delay: 2s;
+}
+
+.bubble-4 {
+    width: 10px;
+    height: 10px;
+    left: 50%;
+    animation-duration: 6s;
+    animation-delay: 0.5s;
+}
+
+.bubble-5 {
+    width: 18px;
+    height: 18px;
+    left: 65%;
+    animation-duration: 9s;
+    animation-delay: 1.5s;
+}
+
+.bubble-6 {
+    width: 12px;
+    height: 12px;
+    left: 80%;
+    animation-duration: 6s;
+    animation-delay: 3s;
+}
+
+.bubble-7 {
+    width: 22px;
+    height: 22px;
+    left: 90%;
+    animation-duration: 8s;
+    animation-delay: 2.5s;
+}
+
+.bubble-8 {
+    width: 15px;
+    height: 15px;
+    left: 25%;
+    animation-duration: 10s;
+    animation-delay: 1.2s;
+}
+
+.bubble-9 {
+    width: 18px;
+    height: 18px;
+    left: 55%;
+    animation-duration: 7.5s;
+    animation-delay: 0.8s;
+}
+
+.bubble-10 {
+    width: 12px;
+    height: 12px;
+    left: 75%;
+    animation-duration: 9s;
+    animation-delay: 3.5s;
+}
+
+@keyframes bubbleRise {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0.5;
+    }
+    25% {
+        transform: translateY(-25vh) translateX(10px) rotate(15deg);
+    }
+    50% {
+        transform: translateY(-50vh) translateX(-10px) rotate(-15deg);
+    }
+    75% {
+        transform: translateY(-75vh) translateX(10px) rotate(15deg);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(-10px) rotate(-15deg);
+        opacity: 0;
+    }
+}
+
+/* Water ripple overlay */
+.water-ripple {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: url('images/water-texture.png') repeat-x;
+    opacity: 0.3;
+    animation: rippleMove 5s linear infinite;
+    background-color: rgba(0, 51, 102, 0.3);
+}
+
+@keyframes rippleMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100px 0;
+    }
+}
+
+/* Fish Shadows */
+.fish-shadow {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50% 70% 70% 50%;
+    transform: rotate(45deg);
+    animation: fishSwim 15s linear infinite;
+    z-index: 1;
+}
+
+.fish-shadow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 40%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    border-radius: 50%;
+}
+
+.fish-shadow-1 {
+    width: 120px;
+    height: 50px;
+    top: 20%;
+    left: -120px;
+    animation-duration: 20s;
+    animation-delay: 0s;
+}
+
+.fish-shadow-2 {
+    width: 80px;
+    height: 30px;
+    top: 40%;
+    left: -80px;
+    animation-duration: 15s;
+    animation-delay: 5s;
+}
+
+.fish-shadow-3 {
+    width: 150px;
+    height: 60px;
+    top: 60%;
+    left: -150px;
+    animation-duration: 25s;
+    animation-delay: 2s;
+}
+
+.fish-shadow-4 {
+    width: 100px;
+    height: 40px;
+    top: 30%;
+    left: -100px;
+    animation-duration: 18s;
+    animation-delay: 8s;
+}
+
+.fish-shadow-5 {
+    width: 70px;
+    height: 25px;
+    top: 70%;
+    left: -70px;
+    animation-duration: 12s;
+    animation-delay: 3s;
+}
+
+@keyframes fishSwim {
+    0% {
+        left: -150px;
+        transform: rotate(45deg) translateY(0);
+    }
+    50% {
+        transform: rotate(45deg) translateY(20px);
+    }
+    100% {
+        left: 100%;
+        transform: rotate(45deg) translateY(0);
+    }
+}

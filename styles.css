@@ -1,0 +1,975 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: rgba(248, 248, 248, 0.9);
+    padding: 8px 0;
+    border-bottom: 1px solid #eaeaea;
+    position: relative;
+    z-index: 100;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-link, .phone, .email {
+    font-size: 14px;
+    margin-right: 15px;
+    color: #555;
+}
+
+.social-link i, .phone i, .email i {
+    margin-right: 5px;
+}
+
+.contact-info {
+    display: flex;
+}
+
+/* Header styles - clean version without parallax CSS */
+.main-header {
+    padding: 15px 0;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+    height: 80px; /* Fixed height for navbar */
+    background-color: #003366; /* Fallback color */
+}
+
+/* Overlay for text readability */
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 51, 102, 0.9), rgba(0, 102, 153, 0.8));
+    z-index: -1;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* This selector was duplicated and has been removed */
+
+/* No longer needed - removed bubble styles */
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.main-nav ul {
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 25px;
+}
+
+.main-nav a {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 5px 0;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+.main-nav a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: white;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s;
+}
+
+.main-nav a:hover:after, .main-nav a.active:after {
+    width: 100%;
+}
+
+/* Banner Section with Underwater Effect */
+.banner-section {
+    /* Change 'header-bg.jpg' to your actual image filename */
+    background: url('demosite3.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 60px 0;
+    position: relative;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.banner-section:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 51, 102, 0.8) 0%, rgba(0, 119, 182, 0.7) 100%);
+    z-index: 0;
+}
+
+/* Water ripple effect */
+.banner-section:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('demosite3.jpg');
+    opacity: 0.1;
+    animation: waterMove 15s linear infinite;
+    z-index: 0;
+}
+
+@keyframes waterMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100px 100px;
+    }
+}
+
+.banner-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.banner-section h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    animation: floatText 3s ease-in-out infinite;
+}
+
+.banner-section p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    animation: floatText 3s ease-in-out infinite reverse;
+}
+
+@keyframes floatText {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Bubbles effect */
+.banner-section .bubble {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: bubbleRise linear infinite;
+    z-index: 0;
+}
+
+.banner-section .bubble:nth-child(1) {
+    width: 20px;
+    height: 20px;
+    left: 10%;
+    animation-duration: 8s;
+}
+
+.banner-section .bubble:nth-child(2) {
+    width: 15px;
+    height: 15px;
+    left: 20%;
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+
+.banner-section .bubble:nth-child(3) {
+    width: 25px;
+    height: 25px;
+    left: 35%;
+    animation-duration: 7s;
+    animation-delay: 2s;
+}
+
+.banner-section .bubble:nth-child(4) {
+    width: 10px;
+    height: 10px;
+    left: 50%;
+    animation-duration: 6s;
+    animation-delay: 0.5s;
+}
+
+.banner-section .bubble:nth-child(5) {
+    width: 18px;
+    height: 18px;
+    left: 65%;
+    animation-duration: 9s;
+    animation-delay: 1.5s;
+}
+
+.banner-section .bubble:nth-child(6) {
+    width: 12px;
+    height: 12px;
+    left: 80%;
+    animation-duration: 6s;
+    animation-delay: 3s;
+}
+
+.banner-section .bubble:nth-child(7) {
+    width: 22px;
+    height: 22px;
+    left: 90%;
+    animation-duration: 8s;
+    animation-delay: 2.5s;
+}
+
+@keyframes bubbleRise {
+    0% {
+        bottom: -20px;
+        opacity: 0.5;
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0;
+    }
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('demosite3.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #003366 0%, #0077b6 100%);
+    opacity: 0.8;
+    z-index: 1;
+}
+
+/* Water ripple effect */
+.water-ripple {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('demosite3.jpg') repeat;
+    opacity: 0.05;
+    animation: waterMove 15s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes waterMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100px 100px;
+    }
+}
+
+/* Bubbles effect */
+.bubble {
+    position: absolute;
+    bottom: -50px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    animation: bubbleRise linear infinite;
+    z-index: 1;
+    pointer-events: none;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.bubble-1 {
+    width: 20px;
+    height: 20px;
+    left: 10%;
+    animation-duration: 8s;
+}
+
+.bubble-2 {
+    width: 15px;
+    height: 15px;
+    left: 20%;
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+
+.bubble-3 {
+    width: 25px;
+    height: 25px;
+    left: 35%;
+    animation-duration: 7s;
+    animation-delay: 2s;
+}
+
+.bubble-4 {
+    width: 10px;
+    height: 10px;
+    left: 50%;
+    animation-duration: 6s;
+    animation-delay: 0.5s;
+}
+
+.bubble-5 {
+    width: 18px;
+    height: 18px;
+    left: 65%;
+    animation-duration: 9s;
+    animation-delay: 1.5s;
+}
+
+.bubble-6 {
+    width: 12px;
+    height: 12px;
+    left: 80%;
+    animation-duration: 6s;
+    animation-delay: 3s;
+}
+
+.bubble-7 {
+    width: 22px;
+    height: 22px;
+    left: 90%;
+    animation-duration: 8s;
+    animation-delay: 2.5s;
+}
+
+.bubble-8 {
+    width: 15px;
+    height: 15px;
+    left: 25%;
+    animation-duration: 10s;
+    animation-delay: 1.2s;
+}
+
+.bubble-9 {
+    width: 18px;
+    height: 18px;
+    left: 55%;
+    animation-duration: 7.5s;
+    animation-delay: 0.8s;
+}
+
+.bubble-10 {
+    width: 12px;
+    height: 12px;
+    left: 75%;
+    animation-duration: 9s;
+    animation-delay: 3.5s;
+}
+
+@keyframes bubbleRise {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0.5;
+    }
+    25% {
+        transform: translateY(-25vh) translateX(10px) rotate(15deg);
+    }
+    50% {
+        transform: translateY(-50vh) translateX(-10px) rotate(-15deg);
+    }
+    75% {
+        transform: translateY(-75vh) translateX(10px) rotate(15deg);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(-10px) rotate(-15deg);
+        opacity: 0;
+    }
+}
+
+.hero-content {
+    max-width: 600px;
+    margin-left: 10%;
+    position: relative;
+    z-index: 2;
+}
+
+.welcome-text {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero-description {
+    font-size: 18px;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+/* Floating text animation */
+.floating-text {
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    text-shadow: 0 2px 10px rgba(0, 119, 182, 0.5);
+}
+
+.welcome-text.floating-text {
+    animation-delay: 0.5s;
+}
+
+.hero-title.floating-text {
+    animation-delay: 0s;
+}
+
+.hero-description.floating-text {
+    animation-delay: 1s;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+    font-size: 14px;
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.btn-primary {
+    background-color: #003366;
+    color: white;
+    border: 2px solid #003366;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: #0077b6;
+}
+
+.hero-image {
+    position: absolute;
+    right: 5%;
+    bottom: -5%;
+    z-index: 2;
+    width: 40%;
+    max-width: 500px;
+}
+
+.marlin-img {
+    width: 100%;
+    transform: rotate(15deg);
+}
+
+/* About Section */
+.about-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    color: #003366;
+    margin-bottom: 15px;
+}
+
+.divider {
+    display: inline-block;
+    position: relative;
+    height: 2px;
+    width: 80px;
+    background-color: #0077b6;
+    margin: 0 auto;
+}
+
+.divider i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f9f9f9;
+    padding: 0 15px;
+    color: #0077b6;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    font-size: 24px;
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Featured Catches */
+.featured-catches {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.catches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.catch-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.catch-card:hover {
+    transform: translateY(-5px);
+}
+
+.catch-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.catch-info {
+    padding: 20px;
+}
+
+.catch-info h3 {
+    font-size: 18px;
+    color: #003366;
+    margin-bottom: 5px;
+}
+
+.catch-info p {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.testimonial {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonial-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-content p {
+    font-size: 18px;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.testimonial-author h4 {
+    font-size: 16px;
+    color: #003366;
+    margin-bottom: 5px;
+}
+
+.testimonial-author p {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+/* Fishing Hero Section */
+.fishing-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('deep-sea-fishing.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.fishing-hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #003366 0%, #0077b6 100%);
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.fishing-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.fishing-hero h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.fishing-hero p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+/* Booking Section */
+.booking-section {
+    padding: 80px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('demosite3.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+.booking-content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.booking-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Footer */
+.main-footer {
+    background-color: #003366;
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-logo img {
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.footer-logo p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.footer-contact h3, .footer-links h3, .footer-social h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-contact h3:after, .footer-links h3:after, .footer-social h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #0077b6;
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.footer-contact i {
+    margin-right: 10px;
+    color: #0077b6;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #0077b6;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #0077b6;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .hero-content {
+        margin-left: 5%;
+    }
+
+    .hero-title {
+        font-size: 40px;
+    }
+
+    .hero-image {
+        width: 35%;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-image, .about-text {
+        flex: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .main-header .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .main-nav li {
+        margin: 5px 10px;
+    }
+
+    .hero {
+        padding: 80px 0;
+    }
+
+    .hero-content {
+        margin: 0 auto;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+
+    .section-header h2 {
+        font-size: 28px;
+    }
+
+    .catches-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .package-card {
+        flex-direction: column;
+    }
+
+    .package-image,
+    .package-details {
+        width: 100%;
+    }
+}
