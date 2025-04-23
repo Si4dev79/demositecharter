@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Sea Fishing - The Fishing Charter</title>
+    <link rel="stylesheet" href="all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles specific to this page */
+        .fishing-hero {
+            background: linear-gradient(135deg, rgba(0, 51, 102, 0.9), rgba(0, 119, 182, 0.8)),
+                        url('fishing-hero.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 100px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fishing-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .fishing-hero p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+        }
+
+        .fishing-options {
+            padding: 80px 0;
+        }
+
+        .option-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .option-card-header {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .option-card-header h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .option-card-header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .option-card-body {
+            padding: 30px;
+        }
+
+        .option-card-body ul {
+            margin-bottom: 20px;
+        }
+
+        .option-card-body li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .option-card-body li:before {
+            content: '\f578';
+            font-family: 'Font Awesome 5 Free';
+            position: absolute;
+            left: 0;
+            color: #003366;
+        }
+
+        .fish-species {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+
+        .species-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .species-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .species-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .species-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .species-info {
+            padding: 20px;
+        }
+
+        .species-info h3 {
+            font-size: 20px;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+
+        .species-info p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .species-info .season {
+            display: inline-block;
+            background-color: #e6f7ff;
+            color: #003366;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .what-to-bring {
+            padding: 80px 0;
+        }
+
+        .what-to-bring-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .what-to-bring-text {
+            flex: 1;
+        }
+
+        .what-to-bring-image {
+            flex: 1;
+        }
+
+        .what-to-bring-image img {
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .what-to-bring-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .what-to-bring-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .what-to-bring-item i {
+            color: #003366;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .fishing-hero h1 {
+                font-size: 36px;
+            }
+
+            .what-to-bring-content {
+                flex-direction: column;
+            }
+
+            .what-to-bring-text, .what-to-bring-image {
+                flex: none;
+                width: 100%;
+            }
+
+            .what-to-bring-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="social">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i> Facebook</a>
+            </div>
+            <div class="contact-info">
+                <a href="tel:+1234567890" class="phone"><i class="fas fa-phone"></i> Your Phone Number</a>
+                <a href="mailto:your.email@example.com" class="email"><i class="fas fa-envelope"></i> your.email@example.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header" id="main-header">
+        <!-- Background overlay for gradient effect -->
+        <div class="header-bg-overlay"></div>
+
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="yourlogo.jpg" alt="Your Fishing Charter Logo">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">HOME PAGE</a></li>
+                    <li><a href="deep-sea-fishing.html" class="active">FISHING TRIPS</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                    <li><a href="gallery.html">PHOTO GALLERY</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Fishing Hero Section -->
+    <section class="fishing-hero">
+        <!-- Bubbles for underwater effect -->
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+        <div class="bubble bubble-4"></div>
+        <div class="bubble bubble-5"></div>
+        <div class="bubble bubble-6"></div>
+        <div class="bubble bubble-7"></div>
+        <div class="bubble bubble-8"></div>
+        <div class="bubble bubble-9"></div>
+        <div class="bubble bubble-10"></div>
+
+        <div class="container">
+            <h1 class="floating-text">DEEP SEA FISHING ADVENTURES</h1>
+            <p class="floating-text">
+                Experience world-class deep sea fishing in the crystal-clear waters of Aruba.
+                Our experienced crew will take you to the best fishing spots for an unforgettable adventure.
+            </p>
+            <a href="contact.html" class="btn btn-primary"><i class="far fa-calendar-alt"></i> BOOK A TRIP</a>
+        </div>
+
+        <!-- Water ripple overlay -->
+        <div class="water-ripple"></div>
+    </section>
+
+    <!-- Our Packages Section -->
+    <section class="packages-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>OUR PACKAGES</h2>
+                <div class="divider"></div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-image">
+                    <img src="demosite.jpg" alt="Fishing boat with catch" class="animate-on-scroll fade-in-left">
+                </div>
+                <div class="package-details">
+                    <h3 class="package-subtitle animate-on-scroll fade-in-right">OUR EVENTS</h3>
+                    <h2 class="package-title animate-on-scroll fade-in-right">4 HRS DEEP SEA FISHING TRIP</h2>
+
+                    <div class="time-options">
+                        <div class="time-slot animate-on-scroll fade-in-right time-slot-1">
+                            <i class="far fa-clock"></i> 4 hours 7-11 AM
+                            <span class="price">$ 460</span>
+                        </div>
+                        <div class="time-slot animate-on-scroll fade-in-right time-slot-2">
+                            <i class="far fa-clock"></i> 4 hours 1-5 PM
+                            <span class="price">$ 460</span>
+                        </div>
+                    </div>
+
+                    <div class="capacity animate-on-scroll fade-in-right">
+                        <i class="fas fa-user"></i> up to 4 people included, $35 per additional (total max. 8)
+                    </div>
+
+                    <div class="trip-includes animate-on-scroll fade-in-right">
+                        <p>4 hours morning trip incl:</p>
+                        <ul>
+                            <li>All that is needed for fishing</li>
+                            <li>Water & softdrinks on ice in jug</li>
+                        </ul>
+                    </div>
+
+                    <a href="contact.html" class="book-now-btn animate-on-scroll fade-in-up">
+                        <i class="far fa-calendar-alt"></i> BOOK NOW
+                    </a>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-image">
+                    <img src="demosite.jpg" alt="Full day fishing" class="animate-on-scroll fade-in-left">
+                </div>
+                <div class="package-details">
+                    <h3 class="package-subtitle animate-on-scroll fade-in-right">PREMIUM PACKAGE</h3>
+                    <h2 class="package-title animate-on-scroll fade-in-right">8 HRS FULL DAY FISHING TRIP</h2>
+
+                    <div class="time-options">
+                        <div class="time-slot animate-on-scroll fade-in-right time-slot-1">
+                            <i class="far fa-clock"></i> 8 hours 7 AM - 3 PM
+                            <span class="price">$ 850</span>
+                        </div>
+                    </div>
+
+                    <div class="capacity animate-on-scroll fade-in-right">
+                        <i class="fas fa-user"></i> up to 4 people included, $50 per additional (total max. 8)
+                    </div>
+
+                    <div class="trip-includes animate-on-scroll fade-in-right">
+                        <p>8 hours full day trip incl:</p>
+                        <ul>
+                            <li>All fishing equipment and bait</li>
+                            <li>Water & softdrinks on ice</li>
+                            <li>Lunch provided on board</li>
+                            <li>Venture to deeper waters for trophy fish</li>
+                        </ul>
+                    </div>
+
+                    <a href="contact.html" class="book-now-btn animate-on-scroll fade-in-up">
+                        <i class="far fa-calendar-alt"></i> BOOK NOW
+                    </a>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-image">
+                    <img src="demosite.jpg" alt="Custom charter" class="animate-on-scroll fade-in-left">
+                </div>
+                <div class="package-details">
+                    <h3 class="package-subtitle animate-on-scroll fade-in-right">CUSTOM EXPERIENCE</h3>
+                    <h2 class="package-title animate-on-scroll fade-in-right">PRIVATE CHARTER</h2>
+
+                    <div class="time-options">
+                        <div class="time-slot animate-on-scroll fade-in-right time-slot-1">
+                            <i class="far fa-clock"></i> Flexible hours
+                            <span class="price">Contact for pricing</span>
+                        </div>
+                    </div>
+
+                    <div class="capacity animate-on-scroll fade-in-right">
+                        <i class="fas fa-user"></i> Customized for your group (max. 8 people)
+                    </div>
+
+                    <div class="trip-includes animate-on-scroll fade-in-right">
+                        <p>Custom charter includes:</p>
+                        <ul>
+                            <li>Personalized fishing experience</li>
+                            <li>Flexible departure times</li>
+                            <li>Premium refreshments and catering options</li>
+                            <li>Target your preferred species</li>
+                            <li>Combine fishing with snorkeling or sightseeing</li>
+                        </ul>
+                    </div>
+
+                    <a href="contact.html" class="book-now-btn animate-on-scroll fade-in-up">
+                        <i class="far fa-calendar-alt"></i> INQUIRE NOW
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fish Species Section -->
+    <section class="fish-species">
+        <div class="container">
+            <div class="section-header">
+                <h2>FISH SPECIES</h2>
+                <div class="divider"><i class="fas fa-fish"></i></div>
+                <p>Discover the exciting game fish you can catch in Aruba's waters</p>
+            </div>
+
+            <div class="species-grid">
+                <div class="species-card">
+                    <img src="stripem.png" alt="Blue Marlin">
+                    <div class="species-info">
+                        <h3>Blue Marlin</h3>
+                        <p>The ultimate trophy fish, known for spectacular jumps and fighting ability. Can reach over 1,000 pounds.</p>
+                        <span class="season">Best Season: May - October</span>
+                    </div>
+                </div>
+
+                <div class="species-card">
+                    <img src="mahi-mahi-fish.jpg" alt="Mahi-Mahi">
+                    <div class="species-info">
+                        <h3>Mahi-Mahi</h3>
+                        <p>Also known as Dorado, these colorful fish are known for their acrobatic fights and delicious meat.</p>
+                        <span class="season">Best Season: Year-round</span>
+                    </div>
+                </div>
+
+                <div class="species-card">
+                    <img src="wahoo-underwater.jpg" alt="Wahoo">
+                    <div class="species-info">
+                        <h3>Wahoo</h3>
+                        <p>One of the fastest fish in the ocean, known for blistering runs and excellent table fare.</p>
+                        <span class="season">Best Season: November - April</span>
+                    </div>
+                </div>
+
+                <div class="species-card">
+                    <img src="yellowfin.jpg" alt="Yellowfin Tuna">
+                    <div class="species-info">
+                        <h3>Yellowfin Tuna</h3>
+                        <p>Powerful fighters that can test any angler's endurance. Prized for sushi-grade meat.</p>
+                        <span class="season">Best Season: March - August</span>
+                    </div>
+                </div>
+
+                <div class="species-card">
+                    <img src="sailfish.jpg" alt="Sailfish">
+                    <div class="species-info">
+                        <h3>Sailfish</h3>
+                        <p>Known for their distinctive sail-like dorsal fin and incredible speed. A beautiful gamefish.</p>
+                        <span class="season">Best Season: January - April</span>
+                    </div>
+                </div>
+
+                <div class="species-card">
+                    <img src="barracuda.jpg" alt="Barracuda">
+                    <div class="species-info">
+                        <h3>Barracuda</h3>
+                        <p>Aggressive predators with razor-sharp teeth. Known for explosive strikes and aerial displays.</p>
+                        <span class="season">Best Season: Year-round</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What to Bring Section -->
+    <section class="what-to-bring">
+        <div class="container">
+            <div class="section-header">
+                <h2>WHAT TO BRING</h2>
+                <div class="divider"><i class="fas fa-fish"></i></div>
+                <p>Prepare for your fishing adventure with these essentials</p>
+            </div>
+
+            <div class="what-to-bring-content">
+                <div class="what-to-bring-text">
+                    <h3>Be Prepared for Your Fishing Trip</h3>
+                    <p>
+                        While we provide all the fishing equipment and refreshments, there are a few personal items
+                        you should bring to ensure a comfortable and enjoyable experience on the water.
+                    </p>
+
+                    <div class="what-to-bring-list">
+                        <div class="what-to-bring-item">
+                            <i class="fas fa-sun"></i>
+                            <span>Sunscreen (SPF 30+)</span>
+                        </div>
+                        <div class="what-to-bring-item">
+                            <i class="fas fa-glasses"></i>
+                            <span>Sunglasses (polarized)</span>
+                        </div>
+                        <div class="what-to-bring-item">
+                            <i class="fas fa-hat-cowboy"></i>
+                            <span>Hat or Cap</span>
+                        </div>
+                        <div class="what-to-bring-item">
+                            <i class="fas fa-tshirt"></i>
+                            <span>Light, Breathable Clothing</span>
+                        </div>
+                        <div class="what-to-bring-item">
+                            <i class="fas fa-camera"></i>
+                            <span>Camera</span>
+                        </div>
+                        <div class="what-to-bring-item">
+                            <i class="fas fa-pills"></i>
+                            <span>Motion Sickness Medication</span>
+                        </div>
+                        <div class="what-to-bring-item">
+                            <i class="fas fa-money-bill"></i>
+                            <span>Cash for Gratuities</span>
+                        </div>
+                        <div class="what-to-bring-item">
+                            <i class="fas fa-id-card"></i>
+                            <span>Valid ID</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="what-to-bring-image">
+                    <img src="prepared-angler.jpg" alt="Prepared Angler">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-content">
+                <h2>READY TO CATCH THE BIG ONE?</h2>
+                <p>Book your Aruba fishing charter today and create memories that will last a lifetime!</p>
+                <a href="contact.html" class="btn btn-primary"><i class="far fa-calendar-alt"></i> BOOK NOW</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="yourlogo.jpg" alt="Your Fishing Charter Logo">
+                    <p>The premier deep sea fishing experience</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>CONTACT US</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Oranjestad Harbor, Aruba</p>
+                    <p><i class="fas fa-phone"></i> +297.#######</p>
+                    <p><i class="fas fa-envelope"></i> info@youremail.com</p>
+                </div>
+                <div class="footer-links">
+                    <h3>QUICK LINKS</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="deep-sea-fishing.html">Deep Sea Fishing</a></li>
+                        <li><a href="gallery.html">Photo Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>FOLLOW US</h3>
+                    <div class="social-icons">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 The Fishing Charter. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="all.js"></script>
+
+    <!-- Booking Popup -->
+    <!-- Booking Popup Overlay -->
+<div class="booking-overlay" id="bookingOverlay">
+    <div class="booking-popup">
+        <!-- Left sidebar with steps -->
+        <div class="booking-steps">
+            <!-- Animated fish in background -->
+            <div class="fish"></div>
+            <div class="fish"></div>
+            <div class="fish"></div>
+
+            <div class="booking-steps-list">
+                <div class="step-connector"></div>
+
+                <div class="booking-step active" data-step="1">
+                    <div class="step-number"><span>1</span></div>
+                    <div class="step-title">Service Selection</div>
+                </div>
+
+                <div class="booking-step" data-step="2">
+                    <div class="step-number"><span>2</span></div>
+                    <div class="step-title">Date & Time</div>
+                </div>
+
+                <div class="booking-step" data-step="3">
+                    <div class="step-number"><span>3</span></div>
+                    <div class="step-title">Your Information</div>
+                </div>
+
+                <div class="booking-step" data-step="4">
+                    <div class="step-number"><span>4</span></div>
+                    <div class="step-title">Confirmation</div>
+                </div>
+            </div>
+
+            <button type="button" class="collapse-menu" id="collapseMenu" title="Collapse menu">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                <span class="sr-only">Collapse menu</span>
+            </button>
+        </div>
+
+        <!-- Right content area -->
+        <div class="booking-content">
+            <div class="booking-header">
+                <h2 class="booking-title">Book Your Fishing Trip</h2>
+                <button type="button" class="close-booking" id="closeBooking" title="Close booking form">&times;</button>
+            </div>
+
+            <!-- Step 1: Service Selection -->
+            <div class="booking-form-step active" data-step="1">
+                <h3>Select Your Fishing Package</h3>
+                <p>Choose the fishing experience that's right for you and your group.</p>
+
+                <div class="service-cards">
+                    <div class="service-card" data-service="half-day-morning">
+                        <div class="service-title">Half-Day Morning</div>
+                        <div class="service-price">$460</div>
+                        <div class="service-description">4 hours fishing trip (7-11 AM)</div>
+                    </div>
+
+                    <div class="service-card" data-service="half-day-afternoon">
+                        <div class="service-title">Half-Day Afternoon</div>
+                        <div class="service-price">$460</div>
+                        <div class="service-description">4 hours fishing trip (1-5 PM)</div>
+                    </div>
+
+                    <div class="service-card" data-service="full-day">
+                        <div class="service-title">Full-Day Charter</div>
+                        <div class="service-price">$850</div>
+                        <div class="service-description">8 hours fishing trip (7 AM - 3 PM)</div>
+                    </div>
+
+                    <div class="service-card" data-service="custom">
+                        <div class="service-title">Custom Charter</div>
+                        <div class="service-price">Contact for pricing</div>
+                        <div class="service-description">Customized experience for your group</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="participants" class="required">Number of Participants</label>
+                    <select id="participants" class="form-control">
+                        <option value="1">1 person</option>
+                        <option value="2">2 people</option>
+                        <option value="3">3 people</option>
+                        <option value="4" selected>4 people</option>
+                        <option value="5">5 people (+ $35)</option>
+                        <option value="6">6 people (+ $70)</option>
+                        <option value="7">7 people (+ $105)</option>
+                        <option value="8">8 people (+ $140)</option>
+                    </select>
+                </div>
+
+                <div class="booking-navigation">
+                    <div></div> <!-- Empty div for flex spacing -->
+                    <button type="button" class="btn-next" data-next="2">Continue</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Date & Time -->
+            <div class="booking-form-step" data-step="2">
+                <h3>Select Date & Time</h3>
+                <p>Choose your preferred date and time for your fishing trip.</p>
+
+                <div class="date-picker-container">
+                    <div class="date-picker-header">
+                        <div class="month-nav">
+                            <button type="button" class="prev-month" title="Previous month">
+                                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                                <span class="sr-only">Previous month</span>
+                            </button>
+                            <div class="month-title">May 2025</div>
+                            <button type="button" class="next-month" title="Next month">
+                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                                <span class="sr-only">Next month</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <table class="calendar">
+                        <thead>
+                            <tr>
+                                <th>Sun</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="calendar-day disabled">28</span></td>
+                                <td><span class="calendar-day disabled">29</span></td>
+                                <td><span class="calendar-day disabled">30</span></td>
+                                <td><span class="calendar-day">1</span></td>
+                                <td><span class="calendar-day">2</span></td>
+                                <td><span class="calendar-day">3</span></td>
+                                <td><span class="calendar-day">4</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="calendar-day">5</span></td>
+                                <td><span class="calendar-day">6</span></td>
+                                <td><span class="calendar-day">7</span></td>
+                                <td><span class="calendar-day">8</span></td>
+                                <td><span class="calendar-day">9</span></td>
+                                <td><span class="calendar-day">10</span></td>
+                                <td><span class="calendar-day">11</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="calendar-day">12</span></td>
+                                <td><span class="calendar-day">13</span></td>
+                                <td><span class="calendar-day">14</span></td>
+                                <td><span class="calendar-day today">15</span></td>
+                                <td><span class="calendar-day">16</span></td>
+                                <td><span class="calendar-day">17</span></td>
+                                <td><span class="calendar-day">18</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="calendar-day">19</span></td>
+                                <td><span class="calendar-day">20</span></td>
+                                <td><span class="calendar-day selected">21</span></td>
+                                <td><span class="calendar-day">22</span></td>
+                                <td><span class="calendar-day">23</span></td>
+                                <td><span class="calendar-day">24</span></td>
+                                <td><span class="calendar-day">25</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="calendar-day">26</span></td>
+                                <td><span class="calendar-day">27</span></td>
+                                <td><span class="calendar-day">28</span></td>
+                                <td><span class="calendar-day">29</span></td>
+                                <td><span class="calendar-day">30</span></td>
+                                <td><span class="calendar-day">31</span></td>
+                                <td><span class="calendar-day disabled">1</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="form-group time-slot-container">
+                    <label>Available Time Slots</label>
+                    <div class="time-slots">
+                        <div class="time-slot-option" data-time="7:00 AM">7:00 AM</div>
+                        <div class="time-slot-option selected" data-time="8:00 AM">8:00 AM</div>
+                        <div class="time-slot-option" data-time="9:00 AM">9:00 AM</div>
+                        <div class="time-slot-option disabled" data-time="10:00 AM">10:00 AM</div>
+                        <div class="time-slot-option" data-time="11:00 AM">11:00 AM</div>
+                        <div class="time-slot-option" data-time="1:00 PM">1:00 PM</div>
+                        <div class="time-slot-option" data-time="2:00 PM">2:00 PM</div>
+                        <div class="time-slot-option disabled" data-time="3:00 PM">3:00 PM</div>
+                    </div>
+                </div>
+
+                <div class="booking-navigation">
+                    <button type="button" class="btn-prev" data-prev="1">Back</button>
+                    <button type="button" class="btn-next" data-next="3">Continue</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Your Information -->
+            <div class="booking-form-step" data-step="3">
+                <h3>Your Information</h3>
+                <p>Please provide your contact details so we can confirm your booking.</p>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="firstName" class="required">First Name</label>
+                            <input type="text" id="firstName" class="form-control" required>
+                            <div class="error-message">Please enter your first name</div>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="lastName" class="required">Last Name</label>
+                            <input type="text" id="lastName" class="form-control" required>
+                            <div class="error-message">Please enter your last name</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="email" class="required">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                            <div class="error-message">Please enter a valid email address</div>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="phone" class="required">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                            <div class="error-message">Please enter a valid phone number</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="specialRequests">Special Requests or Notes</label>
+                    <textarea id="specialRequests" class="form-control" rows="3" placeholder="Any special requests, dietary requirements, or other information we should know?"></textarea>
+                </div>
+
+                <div class="booking-summary">
+                    <h4 class="summary-title">Booking Summary</h4>
+                    <div class="summary-item">
+                        <div class="summary-label">Service:</div>
+                        <div class="summary-value" id="summaryService">Half-Day Morning</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Date:</div>
+                        <div class="summary-value" id="summaryDate">May 21, 2025</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Time:</div>
+                        <div class="summary-value" id="summaryTime">8:00 AM</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Participants:</div>
+                        <div class="summary-value" id="summaryParticipants">4 people</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">Total:</div>
+                        <div class="summary-value summary-total" id="summaryTotal">$460</div>
+                    </div>
+                </div>
+
+                <div class="booking-navigation">
+                    <button type="button" class="btn-prev" data-prev="2">Back</button>
+                    <button type="button" class="btn-next" data-next="4">Confirm Booking</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Confirmation -->
+            <div class="booking-form-step" data-step="4">
+                <div class="booking-success">
+                    <div class="success-icon">✓</div>
+                    <h3 class="success-title">Booking Confirmed!</h3>
+                    <p class="success-message">
+                        Thank you for booking with Your Brand. We've sent a confirmation email to your inbox with all the details.
+                        Our team will contact you shortly to finalize your reservation.
+                    </p>
+                    <p>
+                        <strong>Booking Reference:</strong> <span id="bookingReference">HOOK-25051-8AM</span>
+                    </p>
+                    <button type="button" class="btn-done" id="doneBooking">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
